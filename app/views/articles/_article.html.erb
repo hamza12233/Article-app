@@ -1,27 +1,26 @@
 
-<% if @article.errors.any? %>
-  <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li><%=msg %></li>
-    <%end %>
-  </ul>
-<%end %>
+<%=render 'shared/errors', obj:@article %>
+
+<div class="row">
+  <div class="col-12">
 
 
 <%= form_for @article do |f| %>
 
-  <p>
-    <%=f.label :title %><br/>
-    <%=f.text_field :title %>
-  </p>
-  <p>
-    <%=f.label :description %><br/>
-    <%=f.text_area :description %>
-  </p>
+        <div class="form-group">
+          <%=f.label :title%>
+          <%=f.text_field :title, class:"form-control",placeholder:"Enter Title"%>
+        </div>
+        <div class="form-group">
+          <%=f.label :description %><br/>
+          <%=f.text_area :description, rows:7 ,class:"form-control",placeholder:"Enter Title"%>
+        </div>
 
   <p>
-    <%=f.submit %>
+    <%=f.submit class:"btn btn-primary" %>
   </p>
 
 
 <% end %>
+  </div>
+</div>

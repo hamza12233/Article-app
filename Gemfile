@@ -42,8 +42,7 @@ end
 
 group :production do
   #pg mean posgres
-  gem 'pg'
-  gem 'rails_12factor'
+  gem 'pg', '~> 0.18'
 end
 
 group :test do

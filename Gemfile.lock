@@ -223,7 +223,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.7)
   jquery-rails
-  pg (~> 0.18)
+  pg
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
   sass-rails (>= 6)

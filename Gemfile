@@ -42,7 +42,7 @@ end
 
 group :production do
   #pg mean posgres
-  gem 'pg', '~> 0.18'
+  gem 'pg'
 end
 
 group :test do

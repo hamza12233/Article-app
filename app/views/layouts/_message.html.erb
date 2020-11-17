@@ -1,9 +1,16 @@
-
-<%flash.each do |name,msg| %>
-  <div class="alert alert-success" role="alert">
-    <%=msg %>
+<% if notice  %>
+  <div class="alert alert-success articlecle">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
+    <h4 class="alert-heading"><%=notice%></h4>
   </div>
-<% end %>
+<%end %>
+<%if alert %>
+  <div class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <ul class="mb-0"><%=alert %></ul>
+  </div>
+<%end %>

@@ -1,6 +1,16 @@
 class ArticlesController < ApplicationController
 
-  before_action :set_articles, only:[:edit,:update,:show,:destroy]
+  before_action :set_articles, only:[:edit, :show,:update,:destroy]
+
+  def searching
+     @article = Article.article_search(params[:article])
+    if @article.blank?
+      redirect_to(articles_path, alert: "Empty field!")
+    else
+      flash[:notice] = "search article successfully found"
+      render "searching"
+    end
+  end
 
   def index
     @articles = Article.all

@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root 'pages#home'
   resources :users
   resources :articles
+  get "searching", to:"articles#searching"
 end

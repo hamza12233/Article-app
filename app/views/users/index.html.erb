@@ -10,3 +10,14 @@
   <%end %>
 </div>
 </div>
+
+<div class="bg-light p-4 mb-5 border border-dark">
+  <h3>Comments</h3>
+  <% current_user.comments.each do |comment|  %>
+    <%= comment.body %>
+  <% end %>
+
+
+</div>
+
+<%=render 'comments/comment' %>

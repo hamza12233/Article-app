@@ -11,7 +11,7 @@
           <%=truncate(article.description, length:100) %>
         </div>
       </div>
-      Created by:<%=article.user.username if article.user %>    
+      Created by:<%=article.user.username if article.user %>
       <%if user_signed_in? && (current_user == article.user || current_user.admin?)  %>
       <div class="article-action mt-2">
         <%= link_to "edit this article", edit_article_path(article), class: "btn btn-sm btn-primary" %>

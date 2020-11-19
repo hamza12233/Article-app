@@ -1,0 +1,12 @@
+<h2 class="text-center">All the users </h2>
+<div class="row">
+  <div class="col-lg-6 m-auto">
+<%@users.each do |user| %>
+      <div class="card card-body border border-dark bg-light d-flex m-3">
+  <P class="font-weight-bold text-capitalize"><%=user.username %>
+  </P>
+    <span>this user have: <%= user.articles.count %> article</span>
+      </div>
+  <%end %>
+</div>
+</div>

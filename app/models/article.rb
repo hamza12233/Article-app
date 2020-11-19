@@ -8,5 +8,4 @@ class Article < ApplicationRecord
   #     where(title: search).first
   # end
 
-
 end

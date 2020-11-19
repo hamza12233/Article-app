@@ -1,3 +1,4 @@
+<%=form_tag searching_path, remote:true, method: gets do %>
 <h2 class="text-center">Title: <%=@article.title %></h2>
 <div class="well col-xs-8 col-lg-8 m-auto col-xs-offset-2 bg-light p-4 border border-dark">
   <h4 class="text-center mb-4 d-block"><strong>Description:</strong></h4>
@@ -10,3 +11,4 @@
   </div>
 </div>
 
+<%end %>

@@ -3,12 +3,15 @@ class ArticlesController < ApplicationController
   before_action :set_articles, only:[:edit, :show,:update,:destroy]
 
   def searching
-     @article = Article.article_search(params[:article])
-    if @article.blank?
-      redirect_to(articles_path, alert: "Empty field!")
+     @article = Article.params[:article]
+    if @article.present?
+      redirect_to(articles_path, alert: "not found")
     else
-      flash[:notice] = "search article successfully found"
-      render "searching"
+      # flash[:notice] = "search article successfully found"
+      # render "searching"
+      @parameter = params[:article].downcase
+      @results = Article.all.where("lower(name) LIKE :article", article: @parameter)
+      redirect_to searching_path
     end
   end
 

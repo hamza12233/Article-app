@@ -5,6 +5,13 @@ Rails.application.routes.draw do
   resources :users do
     resources :comments, module: :users
   end
-  resources :articles
-  get "searching", to:"articles#searching"
+  resources :articles do 
+    member do
+      get :published
+      put :published
+      get :not_published
+      put :not_published
+    end
+  end
+  get '/search' => 'artices#search', :as => 'search_page'
 end

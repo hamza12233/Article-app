@@ -1,6 +1,12 @@
+<%
+=begin%>
+ 
+
   <%= form_for [current_user, Comment.new] do |f| %>
   <div class="form-group">
     <%= f.text_area :body, class: "form-control" %>
   </div>
   <%= f.submit class: "btn btn-primary mb-5" %>
-<% end %>
+<% end %> 
+<%
+=end%>

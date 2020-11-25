@@ -2,19 +2,40 @@ class ArticlesController < ApplicationController
 
   before_action :set_articles, only:[:edit, :show,:update,:destroy]
 
-  def searching
-     @article = Article.article_search(params[:article])
-    if @article.blank?
-      redirect_to(articles_path, alert: "Empty field!")
-    else
-      flash[:notice] = "search article successfully found"
-      render "searching"
-    end
+
+  def search  
+    if params[:search].blank?  
+      redirect_to(root_path, alert: "Empty field!") and return  
+    else  
+      @parameter = params[:search].downcase  
+      @results = Article.all.where("lower(name) LIKE :search", search: @parameter)
+      render "articles/searching"
+    end  
   end
 
-  def index
-    @articles = Article.all
+  
+
+  def published
+    @article = Article.find(params[:id])
+    @article.update_attributes(is_published: true)
+    redirect_to articles_path
   end
+
+  def not_published
+    @article = Article.find(params[:id])
+    @article.update_attributes(is_published: false)
+    redirect_to articles_path
+  
+  end
+
+
+  def index
+    if current_user.admin?
+    @articles = Article.all
+    else
+    @articles = Article.status_published
+  end
+end
 
   def new
     @article = Article.new

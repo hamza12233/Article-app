@@ -16,6 +16,11 @@
       <div class="article-action mt-2">
         <%= link_to "edit this article", edit_article_path(article), class: "btn btn-sm btn-primary" %>
         <%=link_to 'delete', article_path(article), method: :delete, data:{confirm: "Are you sure"},class: "btn btn-sm btn-danger" %>
+        <%if !article.is_published%>
+          <%=link_to 'Publish', published_article_path(article),  method: :put, class: "btn btn-sm btn-success" %>
+        <%else%>
+          <%=link_to 'UnPublish', not_published_article_path(article),  method: :put, class: "btn btn-sm btn-danger" %>
+        <%end %>
         <%#=link_to "View all articles", articles_path, class: "btn btn-sm btn-success" %>
       </div>
     <%end %>
@@ -23,6 +28,10 @@
   </div>
 
 <% end %>
-<div id="result">
+<%
+=begin%>
+ <div id="result">
 
-</div>
+</div> 
+<%
+=end%>

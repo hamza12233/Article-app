@@ -1,42 +1,44 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <%=link_to 'Alpha blog', root_path ,id:"logo",class:"navbar-brand" %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <%=link_to 'Alpha blog', root_path ,id:"logo",class:"navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-  <ul class="navbar-nav mr-auto">
-      <li>
-        <%= link_to "Articles" ,articles_path, class:"nav-style" %>
-      </li>
-    <li>
-      <%= link_to "users" ,users_path, class:"nav-style" %>
-    </li>
-    <%if user_signed_in? %>
-      <li class="nav-item">
-        <%= link_to "log out" ,destroy_user_session_path,  method: :delete, class:"nav-style" %>
-      </li>
-    <li class="nav-item">
-      <%= link_to 'Create new article', new_article_path, class:"nav-style" %>
-    </li>
-      <li class="nav-item">
-        <%= link_to('Edit account', edit_user_registration_path, class:"nav-style")%>
-      </li>
-    </ul>
-      <%=form_tag searching_path, method: :get ,:html =>{class:"form-inline my-2 my-lg-0"} do %>
+        <ul class="navbar-nav mr-auto">
+        <%if user_signed_in?%>
+            <li>
+                <%= link_to "Articles" ,articles_path, class:"nav-style" %>
+            </li>
+        <%end%>
+            <li>
+                <%= link_to "users" ,users_path, class:"nav-style" %>
+            </li>
+            <%if user_signed_in? %>
+            <li class="nav-item">
+                <%= link_to "log out" ,destroy_user_session_path,  method: :delete, class:"nav-style" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Create new article', new_article_path, class:"nav-style" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to('Edit account', edit_user_registration_path, class:"nav-style")%>
+            </li>
+        </ul>
+        <%=form_tag search_page_path, method: :get ,:html =>{class:"form-inline my-2 my-lg-0"} do %>
         <div class="d-flex mr-5">
 
-       <%= text_field_tag :article, params[:article], class:"form-control mr-sm-2", placeholder:"Search article" %>
-        <%=submit_tag "search", class:"btn btn-outline-success my-2 my-sm-0" %>
+            <%= text_field_tag :article, params[:article], class:"form-control mr-sm-2", placeholder:"Search article" %>
+            <%=submit_tag "search", class:"btn btn-outline-success my-2 my-sm-0" %>
         </div>
-      <%end %>
+        <%end %>
 
-      <%else %>
-      <div class="ml-2">
-      <%= link_to "log in" ,new_user_session_path, class:" m-auto btn btn-primary " %>
-      </div>
-<%end %>
-  </div>
+        <%else %>
+        <div class="ml-2">
+            <%= link_to "log in" ,new_user_session_path, class:" m-auto btn btn-primary " %>
+        </div>
+        <%end %>
+    </div>
 
 </nav>

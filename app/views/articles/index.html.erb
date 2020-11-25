@@ -11,14 +11,7 @@
                 <%=truncate(article.description, length:100) %>
             </div>
         </div>
-        Created by:<%=article.user.username if article.user  %>
-        <%if user_signed_in? && (current_user == article.user || current_user.admin?)  %>
-        <div class="article-action mt-2">
-            <%= link_to "edit this article", edit_article_path(article), class: "btn btn-sm btn-primary" %>
-            <%=link_to 'delete', article_path(article), method: :delete, data:{confirm: "Are you sure"},class: "btn btn-sm btn-danger" %>
-            <%#=link_to "View all articles", articles_path, class: "btn btn-sm btn-success" %>
-        </div>
-      </div>
+
       Created by:<%=article.user.username if article.user %>
       <%if user_signed_in? && (current_user == article.user || current_user.admin?)  %>
       <div class="article-action mt-2">
@@ -31,7 +24,6 @@
         <%end %>
         <%#=link_to "View all articles", articles_path, class: "btn btn-sm btn-success" %>
       </div>
-    <%end %>
         <%end %>
     </div>
 </div>
@@ -40,7 +32,6 @@
 <%
 =begin%>
  <div id="result">
-
 <<<<<<< HEAD
 </div> 
 <%

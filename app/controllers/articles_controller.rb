@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
 
   before_action :set_articles, only:[:edit, :show,:update,:destroy]
 
+<<<<<<< HEAD
 
   def search  
     if params[:search].blank?  
@@ -20,6 +21,20 @@ class ArticlesController < ApplicationController
     @article.update_attributes(is_published: true)
     redirect_to articles_path
   end
+=======
+  # def searching
+  #    @article = Article.params[:article]
+  #   if @article.present?
+  #     redirect_to(articles_path, alert: "not found")
+  #   else
+  #     # flash[:notice] = "search article successfully found"
+  #     # render "searching"
+  #     @parameter = params[:article].downcase
+  #     @results = Article.all.where("lower(name) LIKE :article", article: @parameter)
+  #     redirect_to searching_path
+  #   end
+  # end
+>>>>>>> 7fdb0a4a20792b267914d5c69a870b229b111030
 
   def not_published
     @article = Article.find(params[:id])

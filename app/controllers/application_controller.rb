@@ -14,5 +14,9 @@ class ApplicationController < ActionController::Base
      articles_path
   end
 
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 7fdb0a4a20792b267914d5c69a870b229b111030
 end

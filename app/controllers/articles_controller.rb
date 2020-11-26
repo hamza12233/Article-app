@@ -25,6 +25,14 @@ end
     @article.update_attributes(is_published: true)
     redirect_to articles_path
   end
+
+  def not_published
+    @article = Article.find(params[:id])
+    @article.update_attributes(is_published: false)
+    redirect_to articles_path
+  end
+
+  
   # def searching
   #    @article = Article.params[:article]
   #   if @article.present?
@@ -38,17 +46,8 @@ end
   #   end
   # end
 
-  def not_published
-    @article = Article.find(params[:id])
-    @article.update_attributes(is_published: false)
-    redirect_to articles_path
-  
 
-  end
 
-  def index
-    @articles = Article.all
-  end
 
   def new
     @article = Article.new

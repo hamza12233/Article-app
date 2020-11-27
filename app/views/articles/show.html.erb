@@ -5,13 +5,26 @@
   <h4 class="text-center mb-4 d-block"><strong>Description:</strong></h4>
   <%=simple_format(@article.description)%>
   Created by:<%=@article.user.username if @article.user %>
-  <div class="article-action">
-    <%if user_signed_in? && current_user == @article.user %>
+  <div class="article-action mt-2">
+    <%if user_signed_in? && (current_user == @article.user || current_user.admin?) %>
     <%= link_to "edit this article", edit_article_path(@article), class: "btn btn-sm btn-primary" %>
     <%=link_to 'delete', article_path(@article), method: :delete, data:{confirm: "Are you sure"},class: "btn btn-sm btn-danger" %>
     <%end %>
       <%=link_to "View all articles", articles_path, class: "btn btn-sm btn-success" %>
   </div>
+
+  <div class="d-flex mt-3">
+    <%if @article.categories.any? %>
+      <h6 class="font-weight-bold mt-1">Categories:</h6>
+      <% @article.categories.each do |category|  %>
+        <div class="d-flex d-flex">
+          <span class="ml-3"><%=category.name if @article.categories  %></span>
+        </div>
+      <%end %>
+    <%end %>
+  </div>
+
+
 </div>
 
   

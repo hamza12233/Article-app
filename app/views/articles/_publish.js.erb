@@ -1,0 +1,9 @@
+$('.publish').bind('ajax:success', function() {
+    $(this).closest('tr').fadeOut();
+});
+
+$('.unpublish').bind('ajax:success', function() {
+    $(this).closest('tr').fadeOut();
+});
+
+

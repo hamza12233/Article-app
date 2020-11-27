@@ -11,35 +11,47 @@
 
         <%if user_signed_in?%>
             <li>
-                <%= link_to "Articles" ,articles_path, class:"nav-style" %>
+                <%= link_to "Articles" ,articles_path, class:"nav-style text-white" %>
+            <li role="separator" class="divider m-2">|</li>
             </li>
         <%end%>
    
             <li>
-                <%= link_to "users" ,users_path, class:"nav-style" %>
+                <%= link_to "users" ,users_path, class:"nav-style text-white" %>
             </li>
-            <%if user_signed_in? %>
+          <li role="separator" class="divider m-2">|</li>
+          <%if user_signed_in? %>
             <li class="nav-item">
-                <%= link_to "log out" ,destroy_user_session_path,  method: :delete, class:"nav-style" %>
+                <%= link_to "log out" ,destroy_user_session_path,  method: :delete, class:"nav-style text-white" %>
             </li>
+            <li role="separator" class="divider m-2">|</li>
             <li class="nav-item">
-                <%= link_to 'Create new article', new_article_path, class:"nav-style" %>
+                <%= link_to 'Create new article', new_article_path, class:"nav-style text-white" %>
             </li>
+            <li role="separator" class="divider m-2">|</li>
             <li class="nav-item">
-                <%= link_to('Edit account', edit_user_registration_path, class:"nav-style")%>
+                <%= link_to('Edit account', edit_user_registration_path, class:"nav-style text-white")%>
+            </li>
+            <li role="separator" class="divider m-2">|</li>
+            <li>
+              <%=link_to "All Categories", categories_path, class:"nav-style text-white" %>
+            </li>
+            <li role="separator" class="divider m-2">|</li>
+            <li>
+              <%=link_to "Add Catgory", new_category_path, class:"nav-style text-white" if current_user.admin?  %>
             </li>
         </ul>
-        <%=form_tag search_page_path, method: :get ,:html =>{class:"form-inline my-2 my-lg-0"} do %>
-        <div class="d-flex mr-5">
+        <%#=form_tag search_page_path, method: :get ,:html =>{class:"form-inline my-2 my-lg-0 text-white"} do %>
+<!--        <div class="d-flex mr-5">-->
 
-       <%= text_field_tag :article, params[:article], class:"form-control mr-sm-2", placeholder:"Search article" %>
-        <%=submit_tag "search", class:"btn btn-outline-success my-2 my-sm-0" %>
-        </div>
-      <%end %>
+       <%#= text_field_tag :article, params[:article], class:"form-control mr-sm-2", placeholder:"Search article" %>
+        <%#=submit_tag "search", class:"btn btn-outline-success my-2 my-sm-0" %>
+<!--        </div>-->
+      <%#end %>
 
       <%else %>
       <div class="ml-2">
-      <%= link_to "log in" ,new_user_session_path, class:" m-auto btn btn-primary " %>
+      <%= link_to "log in" ,new_user_session_path, class:" m-auto btn btn-primary text-white" %>
       </div>
 <%end %>
   </div>

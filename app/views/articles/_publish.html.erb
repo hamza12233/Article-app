@@ -1,0 +1,5 @@
+<%if !article_obj.is_published && current_user.admin?%>
+  <%=link_to 'Publish', published_article_path(article_obj), remote: true ,method: :put, class: "btn btn-sm btn-success publish" %>
+<%else%>
+  <%=link_to 'UnPublish', not_published_article_path(article_obj),remote: true,  method: :put, class: "btn btn-sm btn-danger unpublish" if current_user.admin? %>
+<%end %>

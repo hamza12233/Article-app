@@ -1,0 +1,20 @@
+<h2 class="text-center font-weight-bold">List all the categories</h2>
+<div class="row ">
+  <div class="col-md-6 m-auto">
+<%@categories.each do |category| %>
+    <div class="row justify-content-center mb-5 mt-3">
+      <div class="col-xs-8 col-lg-8 col-xs-offset-2 bg-light p-3 border border-dark">
+        <div class="well well-lg">
+          <div class="article-title">
+            <h4 class="text-center font-weight-bold"> <%=link_to category.name%></h4>
+          </div>
+        </div>
+
+
+            <%#=link_to "View all articles", articles_path, class: "btn btn-sm btn-success" %>
+      </div>
+    </div>
+
+<% end %>
+  </div>
+</div>
